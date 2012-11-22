@@ -1,4 +1,4 @@
-waxe
+Waxe
 ====
 
 Waxe is a Haxe language binding for the wxWidgets cross-platform GUI toolkit. It can be used for the Neko and C++ targets of Haxe.
