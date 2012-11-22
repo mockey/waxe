@@ -1,0 +1,5 @@
+-main WaxeMe
+#-cp ../..
+-neko WaxeMe.n
+-lib waxe
+-lib nme

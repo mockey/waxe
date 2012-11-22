@@ -1,0 +1,5 @@
+-main Main
+-lib waxe
+-lib nme
+-neko test.n
+-D neko_v2
