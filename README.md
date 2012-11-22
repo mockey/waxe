@@ -1,7 +1,7 @@
 waxe
 ====
 
-With waxe you can use the popular wxWidgets library from haxe for the neko or c++ targets.
+With waxe you can use the wxWidgets C++ library from Haxe for its neko or C++ targets.
 
 All code is based on the official repo at:
 http://code.google.com/p/waxe/,
