@@ -1,7 +1,7 @@
 waxe
 ====
 
-With waxe you can use the wxWidgets C++ library from Haxe for its neko or C++ targets.
+Waxe is a Haxe language binding for the wxWidgets cross-platform GUI toolkit. It can be used for the Neko and C++ targets of Haxe.
 
 All code is based on the official repo at:
 http://code.google.com/p/waxe/,
