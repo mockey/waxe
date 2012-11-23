@@ -18,7 +18,7 @@ class ListBox extends ControlWithItems
    {
 		if (inParent==null)
 			throw Error.INVALID_PARENT;
-		
+		if (inValues == null) inValues = [];
       var handle = wx_list_box_create(
 			[inParent.wxHandle,inID,"",inPosition,inSize, inStyle], inValues );
       return new ListBox(handle, inValues.length);
