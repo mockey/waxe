@@ -9,6 +9,18 @@ class WaxeMe
 {
    var mFrame : wx.Frame;
    var mStage : wx.NMEStage;
+   
+   // fix for $loader.path:
+	static function __init__ () {
+		var loader = new neko.vm.Loader(untyped $loader);
+		var paths = loader.getPath();
+		paths.reverse();
+		untyped loader.l.path = null;
+		for (path in paths) {
+			if (!StringTools.endsWith(path, "/")) path += "/";
+			loader.addPath(path);
+		}
+	}
 
    function new()
    {

@@ -10,7 +10,7 @@
 
 <set name="DBG" value="d" if="debug"/>
 
-<set name="WXROOT" value="/home/mockey/src/wxWidgets-2.9.3" unless="WXROOT"/>
+<set name="WXROOT" value="/home/mockey/src/wxWidgets-2.9.4" unless="WXROOT"/>
 <set name="WXLIB" value="${WXROOT}/lib/Windows" if="windows"/>
 <set name="WXLIB" value="${WXROOT}/lib/Mac" if="macos"/>
 <set name="WXLIB" value="${WXROOT}/lib" if="linux"/>

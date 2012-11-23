@@ -29,3 +29,13 @@ value wx_scrolled_window_set_scrollbars(value *args, int nargs)
 	return alloc_null();
 }
 DEFINE_PRIM_MULT(wx_scrolled_window_set_scrollbars);
+
+value wx_scrolled_window_set_scroll_rate(value inWindow, value stepX, value stepY)
+{
+	wxScrolledWindow *window;
+	if (!ValueToWX(inWindow, window))
+		val_throw(alloc_string("Invalid Window"));
+	window->SetScrollRate(Val2Int(stepX), Val2Int(stepY));
+	return alloc_null();
+}
+DEFINE_PRIM(wx_scrolled_window_set_scroll_rate, 3);

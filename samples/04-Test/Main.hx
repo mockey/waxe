@@ -5,6 +5,18 @@ import wx.Sizer;
 
 class Main {
 	
+	// fix for $loader.path:
+	static function __init__ () {
+		var loader = new neko.vm.Loader(untyped $loader);
+		var paths = loader.getPath();
+		paths.reverse();
+		untyped loader.l.path = null;
+		for (path in paths) {
+			if (!StringTools.endsWith(path, "/")) path += "/";
+			loader.addPath(path);
+		}
+  }
+	
 	static function main() {
 		wx.App.boot(function() new Main());
 	}
@@ -12,11 +24,14 @@ class Main {
 	function new() {
 		var frame = wx.Frame.create(null, "Test", {width: 800, height: 600});
 		
+		// scrolled window:
 		//var panel = wx.Panel.create(frame);
 		var panel = wx.ScrolledWindow.create(frame, null);
-		panel.setScrollBars(20, 20, 50, 50);
+		//panel.setScrollBars(20, 20, 50, 50);
+		panel.setScrollRate(20, 20);
 		var sizer = wx.BoxSizer.create(true);
 		
+		// radio box:
 		var radioBox = wx.RadioBox.create(panel, "Radio Box", [
 			"item 0", "item 1", "item 2", "item 3", "item 4", "item 5", "item 6", "item 7", "item 8", "item 9"
 		], 2, wx.RadioBox.SPECIFY_COLS);
@@ -41,7 +56,7 @@ class Main {
 		}
 		sizer.add(btn2, 0, Sizer.BORDER_LEFT | Sizer.BORDER_RIGHT, 10);
 		
-		
+		// listbox:
 		var listBox = wx.ListBox.create(panel, [
 			"item 0", "item 1", "item 2", "item 3", "item 4", "item 5"
 		]);
@@ -65,7 +80,8 @@ class Main {
 		btn6.onClick = function(_) listBox.clear();
 		sizer.add(btn6, 0, Sizer.BORDER_LEFT | Sizer.BORDER_RIGHT, 10);
 		
-		var sound = new nme.media.Sound(new nme.net.URLRequest("test.ogg"), true);
+		// testing NME sound and stage:
+		var sound = new nme.media.Sound(new nme.net.URLRequest("test.mp3"), true);
 		if (sound == null)
 			trace("WARNING: sound file failed to load");
 		var channel = null;

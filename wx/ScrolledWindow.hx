@@ -18,7 +18,12 @@ class ScrolledWindow extends Panel, implements MacroCffi {
 	@:wx_func("set_scrollbars")
 	public function setScrollBars(ppuX:Int, ppuY:Int, nuX:Int, nuY:Int,
 	xPos = 0, yPos = 0, noRefresh = false) {
-		return _set_scrollbars(wxHandle, ppuX, ppuY, nuX, nuY, xPos, yPos, noRefresh);
+		_set_scrollbars(wxHandle, ppuX, ppuY, nuX, nuY, xPos, yPos, noRefresh);
+	}
+	
+	@:wx_func("set_scroll_rate")
+	public function setScrollRate(stepX:Int, stepY:Int) {
+		_set_scroll_rate(wxHandle, stepX, stepY);
 	}
 	
 }
