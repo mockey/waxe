@@ -15,7 +15,7 @@ Additions:
 	
 2012-11-23, cambiata:
 	
-	* added working buildscript for windows (src/Windows-Build.xml) and bat file (build-windows-ndll.bat) to simplify compilation of ndll/Windows/waxe.ndll
-	* added MessageDialog
-	* added onTextUpdate handler to TextCtrl
-	* added set() method to ListBox - thanks to misterpah
+* added working buildscript for windows (src/Windows-Build.xml) and bat file (build-windows-ndll.bat) to simplify compilation of ndll/Windows/waxe.ndll
+* added MessageDialog
+* added onTextUpdate handler to TextCtrl
+* added set() method to ListBox - thanks to misterpah
