@@ -18,10 +18,14 @@ class ListBox extends ControlWithItems
    {
 		if (inParent==null)
 			throw Error.INVALID_PARENT;
+		
       var handle = wx_list_box_create(
 			[inParent.wxHandle,inID,"",inPosition,inSize, inStyle], inValues );
       return new ListBox(handle, inValues.length);
    }
+   
+   
+   
 
 	function setOnSelected(f:Dynamic->Void)
 	   {setHandler(wx.EventID.COMMAND_LISTBOX_SELECTED,f); return f;}
@@ -49,5 +53,14 @@ class ListBox extends ControlWithItems
    static var wx_list_box_get_selection = Loader.load("wx_list_box_get_selection",1);
    static var wx_list_box_set_selection = Loader.load("wx_list_box_set_selection",2);
    static var wx_list_box_get_string = Loader.load("wx_list_box_get_string",2);
-   static var wx_list_box_set_string = Loader.load("wx_list_box_set_string",3);
+   static var wx_list_box_set_string = Loader.load("wx_list_box_set_string", 3);
+   
+   
+   //----------------------------------------------------------------------------
+   // set method, misterpah 2012-09-26
+   //
+   
+   public function set(insertArray:Array<String>)  { wx_list_box_set(wxHandle,insertArray); }   
+   static var wx_list_box_set = Loader.load("wx_list_box_set",2);      
+   
 }
