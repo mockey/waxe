@@ -38,5 +38,6 @@ value wx_item_container_clear(value inContainer)
 	if (!ValueToWX(inContainer, container))
 		val_throw(alloc_string("Invalid Container"));
 	container->Clear();
+	return alloc_null();	
 }
 DEFINE_PRIM(wx_item_container_clear, 1);
