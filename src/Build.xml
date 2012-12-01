@@ -10,20 +10,21 @@
 
 <set name="DBG" value="d" if="debug"/>
 
-<set name="WXROOT" value="/home/mockey/src/wxWidgets-2.9.4" unless="WXROOT"/>
-<set name="WXLIB" value="${WXROOT}/lib/Windows" if="windows"/>
-<set name="WXLIB" value="${WXROOT}/lib/Mac" if="macos"/>
+<set name="WXROOT" value="/your/path/to/wxWidgets-2.9.x" unless="WXROOT"/>
+<set name="WXLIB" value="${WXROOT}/lib/vc_lib" if="windows"/>
+<set name="WXLIB" value="${WXROOT}/lib" if="macos"/>
 <set name="WXLIB" value="${WXROOT}/lib" if="linux"/>
-<set name="WXLIB" value="${WXROOT}/lib/Linux" if="linux" unless="HXCPP_M64"/>
 
 <files id="files">
    <compilerflag value = "-Iinclude"/>
    <compilerflag value = "-I${WXROOT}/include"/>
+   <compilerflag value = "-I${WXLIB}/mswu" if="windows"/>
+   <compilerflag value = "-I${WXLIB}/wx/include/osx_cocoa-unicode-static-2.9" if="macos"/>
    <compilerflag value = "-I${WXLIB}/wx/include/gtk2-unicode-static-2.9" if="linux"/>
    <compilerflag value = "-Iwaxe"/>
    <compilerflag value = "-D_FILE_OFFSET_BITS=64" />
    <compilerflag value = "-D_LARGE_FILES=64" />
-   <compilerflag value = "-D__WXOSX_CARBON__" if="macos"/>
+   <compilerflag value = "-D__WXOSX_COCOA__" if="macos"/>
    <compilerflag value = "-DwxDEBUG_LEVEL=0" if="macos"/>
    <compilerflag value = "-D__WXGTK__" if="linux"/>
    <compilerflag value = "-D__WXMSW__" if="windows"/>
@@ -76,9 +77,9 @@
    <flag value="${LIB_DIR}"/>
 
    <lib name="${WXLIB}/libwx_baseu-2.9.a" if="macos"/>
-   <lib name="${WXLIB}/libwx_osx_carbonu_core-2.9.a" if="macos"/>
-   <lib name="${WXLIB}/libwx_osx_carbonu_stc-2.9.a" if="macos"/>
-   <lib name="${WXLIB}/libwx_osx_carbonu_gl-2.9.a" if="macos"/>
+   <lib name="${WXLIB}/libwx_osx_cocoau_core-2.9.a" if="macos"/>
+   <lib name="${WXLIB}/libwx_osx_cocoau_stc-2.9.a" if="macos"/>
+   <lib name="${WXLIB}/libwx_osx_cocoau_gl-2.9.a" if="macos"/>
    <lib name="${WXLIB}/libwxpng-2.9.a" if="macos" />
 
    <lib name="${WXLIB}/libwx_gtk2u_stc-2.9.a" if="linux"/>

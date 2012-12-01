@@ -1,3 +1,4 @@
 all_objs
 obj/
 vc100.pdb
+MyBuild.xml
